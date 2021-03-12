@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Footer from './component/Footer';
-import Header from './component/Header';
+import Footer from './Components/footer/Footer';
+import Header from './Components/header/Header';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import Dashboard from './component/Dashboard';
-import ReadNow from './component/ReadNow';
+import Dashboard from './Components/dashboad/Dashboard';
+import ReadNow from './Component/ReadNow';
 import Login from './component/Login';
 import PrivateRoute from './PrivateRoute';
 
