@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react';
-import Card from './Card';
+import Card from '../card/Card';
+// import Card from './card/Card';
 export default function Dashboard() {
 
 const[trending,setTrending] =useState([]);

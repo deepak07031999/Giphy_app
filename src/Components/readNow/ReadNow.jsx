@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react';
-import ReadCard from './ReadCard';
+import ReadCard from '../ReadCard';
 
 export default function ReadNow() {
     const[readnowlist,setReadnowlist] =useState([]);
