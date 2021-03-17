@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Footer from './Components/footer/Footer';
-import Header from './Components/header/Header';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import Dashboard from './Components/dashboard/Dashboard';
-import ReadNow from './Components/readNow/ReadNow';
-import Login from './Components/login/Login';
+import Dashboard from './Components/Dashboard';
+import ReadNow from './Components/ReadNow';
+import Login from './Components/Login';
 import PrivateRoute from './PrivateRoute';
 
 class App extends React.Component{
@@ -15,7 +15,7 @@ class App extends React.Component{
     <Header/>
     <Switch>
       <PrivateRoute exact path="/"  component={Dashboard}/>
-      <PrivateRoute  path="/readnow"  component={ReadNow}/>
+      <PrivateRoute  path="/favourite"  component={ReadNow}/>
       <Route path="/login" component={Login}></Route>
     </Switch>
     <Footer/>

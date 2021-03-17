@@ -15,7 +15,7 @@ footer{
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: red;
+  background-color: rgb(61, 59, 59);
   color: aliceblue;
   width: 100%;
 }
@@ -23,4 +23,27 @@ footer{
 .myimg{
   width:240px;
   height:200px;
+}
+
+.search-bar{
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+#searchbtn{
+  margin-left: 0.5rem;
+}
+.myimg2{
+  display: none;
+}
+#surround:hover span[id="initial"] {
+  display: none;
+}
+#surround:hover span[id="onhover"] {
+  display: block;
+}
+.card-image-myimg:hover img[id="myimg1"]{
+  display: none;
+}
+.card-image-myimg:hover img[id="myimg2"]{
+  display: block;
 }

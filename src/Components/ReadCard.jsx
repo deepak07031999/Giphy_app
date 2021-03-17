@@ -1,5 +1,5 @@
 import React from 'react'
-import  { useState, useEffect } from 'react'
+// import  { useState, useEffect } from 'react'
 
 export default function Card(props) {
   // const[description,setdescription]=useState('');
@@ -8,26 +8,36 @@ export default function Card(props) {
   //  setdescription(props.description);
   //  setid(props.id);
   //     });
-  
-  const saveNews = () => {
-    const newCard={
-      author:props.author,
-      title:props.title,
-      description:props.description,
-      url:props.url,
-      urlToImage:props.urlToImage
+  const deletebtn = () => {
+    const newGiphy={
+      url:props.giphyUrl,
+      id:props.id
     }
-    props.readLater(newCard);
+    props.deleteGiphy(newGiphy);
 };
-    return (
-        <div className="card-inline" style={{width:"17rem" ,border:"1px solid black" ,margin:"5px" }}>
-        <div className="card-body ">
-        <div className="card-image-myimg" ><img className="myimg" src={props.urlToImage}/> </div>
-        <p className="card-title" >{props.title}</p>
+
+  return (
+    <div className="card-inline" style={{ width: "17rem", border: "1px solid black", margin: "5px" }}>
+      <div className="card-body ">
+        {/* <div className="card-image-myimg" ><img className="myimg" src={props.giphyUrl} /> </div> */}
+        <div className="card-image-myimg" >
+          <img id="myimg1" className="myimg myimg1" src={props.giphyimage} 
+          alt={props.giphyUrl}
+          />
+          <img  id="myimg2" className="myimg myimg2" src={props.giphyUrl} 
+          alt={"Server not Working..."}
+          />
+          </div>
+        {/* <p className="card-title" >{props.title}</p>
         <p className="card-author"><b>{props.author}</b></p>
         <b><h5>Description</h5></b>
-        <p className="card-description" >{props.description}</p>
+        <p className="card-description" >{props.description}</p> */}
+        <button type="submit" className="btn btn-primary" onClick={() => { deletebtn(); }}
+          style={{ width: "14rem", margin: "5px" }}
+        >
+          Delete
+                </button>
       </div>
     </div>
-    )
+  )
 }
