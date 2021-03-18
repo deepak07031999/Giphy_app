@@ -83,7 +83,10 @@ export default function Login(){
                     {
                         console.log("heyal")
                         flag=1;
-                        history.push(`/dashboard/${response.data[i].username}`)
+                        localStorage.setItem('token', "token");
+                        localStorage.setItem('username', username);
+                        localStorage.setItem('isAuthenticated', true);
+                        history.push(`/dashboard`)
                     }
 
                     else
@@ -100,6 +103,8 @@ export default function Login(){
                         console.log("wrong")
                         history.push("/login")
             }
+        
+        
         })
         .catch((error) => {
             console.log("error searching data base for users")
@@ -110,8 +115,8 @@ export default function Login(){
         <div>
         <div className="container mt-4">
             <h2>Login</h2>
-            <div className="row mt -3">
-                <div className="col-md-4">
+            <div className="row mt-3">
+                <div className="col-md-8">
                     <div className="form-group">
                         <div className="mb-3">
                             <input type="text" placeholder="Enter your username" className="form-control"

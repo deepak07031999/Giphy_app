@@ -8,9 +8,15 @@ export default function ReadNow(props) {
     const history = useHistory();
     const [favoriteGiphyList, setFavoriteGiphyList] = useState([]);
     useEffect(() => {
+        if(localStorage.getItem('isAuthenticated') !=='true')
+        {
+          alert("Invalid User login again")
+          //console.log("wrong")
+          history.push("/login")
+        }
         axios.get("http://localhost:3100/users")
             .then((res) => {
-                const userdata=(res.data.filter((user) => user.username === props.match.params.username));
+                const userdata=(res.data.filter((user) => user.username === localStorage.getItem('username')));
                 if(userdata.length==0)
                 {
                     alert("Invalid User login again")
@@ -29,7 +35,7 @@ export default function ReadNow(props) {
     axios
       .get('http://localhost:3100/users')
       .then((res) => {
-        const userdata=(res.data.filter((user) => user.username === props.match.params.username));
+        const userdata=(res.data.filter((user) => user.username === localStorage.getItem('username')));
         //console.log(userdata)
         // if(userdata.length==0)
         // {
@@ -67,9 +73,9 @@ export default function ReadNow(props) {
       })
 
         // axios
-        //     .delete(`http://localhost:3100/giphy/${newGiphy.id}`, {
-        //         headers: { 'Content-Type': 'application/json' },
-        //     })
+            // .delete(`http://localhost:3100/giphy/${newGiphy.id}`, {
+            //     headers: { 'Content-Type': 'application/json' },
+            // })
         //     .then((response) => {
         //         if (response.status === 200) {
         //             setFavoriteGiphyList(favoriteGiphyList.filter((favoriteGiphy) => favoriteGiphy.id !== newGiphy.id));
@@ -80,7 +86,7 @@ export default function ReadNow(props) {
     return (
         <div>
             <Header 
-            username={props.match.params.username}/>
+            username={localStorage.getItem('username')}/>
             <div className='container' >
                 <div className='row' style={{ width: "max" }}>
                     {favoriteGiphyList.map((giphy) => (

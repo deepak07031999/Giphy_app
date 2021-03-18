@@ -15,6 +15,13 @@ export default function Dashboard(props) {
   const [alluser, setAlluser] = useState([]);
   // const Api=b909d678e82f454a84d8487e1da59893;
   useEffect(() => {
+    if(localStorage.getItem('isAuthenticated') ==='true');
+    else
+    {
+          alert("Invalid ")
+          //console.log("wrong")
+          history.push("/login")
+    }
     axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apikey}&limit=${limit}&rating=g`)
       .then((res) => {
         setTrending(res.data.data);
@@ -71,7 +78,7 @@ export default function Dashboard(props) {
   return (
     <div>
       <Header
-        username={props.match.params.username}
+        username={localStorage.getItem('username')}
       />
       <div className='container'>
         {/* <h1>{props.match.params.username}</h1> */}
@@ -103,7 +110,7 @@ export default function Dashboard(props) {
           {trending.map((giphy) => (
             <Card
               // giphyUrl={giphy.images.fixed_height_small.url}
-              username={props.match.params.username}
+              username={localStorage.getItem('username')}
               giphyimage={giphy.images.fixed_width_small_still.url}
               giphyUrl={giphy.images.fixed_width_small.url}
               saveGiphy={saveGiphy}

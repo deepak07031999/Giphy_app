@@ -32,12 +32,12 @@
           "image": "https://media3.giphy.com/media/WQYm6kUtnZk8KV91x4/100w_s.gif?cid=c893431a3c587g39yl14wuae5b6l68ppa4djbhheaoff0sbf&rid=100w_s.gif"
         },
         {
-          "url": "https://media3.giphy.com/media/7KvpshHPnAm3DY9j7L/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
-          "image": "https://media3.giphy.com/media/7KvpshHPnAm3DY9j7L/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
-        },
-        {
           "url": "https://media4.giphy.com/media/unD3Qq36syCoQ3e5C5/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
           "image": "https://media4.giphy.com/media/unD3Qq36syCoQ3e5C5/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media2.giphy.com/media/3oz8xRF0v9WMAUVLNK/100w.gif?cid=c893431a7p0b5pb0v1s26d39s7cm7d4zgvvtrx4yzgvxbbsm&rid=100w.gif",
+          "image": "https://media2.giphy.com/media/3oz8xRF0v9WMAUVLNK/100w_s.gif?cid=c893431a7p0b5pb0v1s26d39s7cm7d4zgvvtrx4yzgvxbbsm&rid=100w_s.gif"
         }
       ],
       "id": 2
@@ -66,6 +66,14 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "admin",
+      "username": "admin",
+      "password": "password",
+      "email": "admin@gmail.com",
+      "giphy": [],
+      "id": 4
     }
   ]
 }

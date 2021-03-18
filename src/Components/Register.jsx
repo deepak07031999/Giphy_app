@@ -28,7 +28,7 @@ export default function Register() {
             <div className="container mt-4">
                 <h2>Register</h2>
                 <div className="row mt -3">
-                    <div className="col-md-4">
+                    <div className="col-md-8">
                         <div className="form-group">
 
                             <div className="mb-3">
