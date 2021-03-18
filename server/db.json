@@ -5,7 +5,20 @@
       "username": "DeepakY",
       "password": "whatyouwant",
       "email": "deepak@gmail.com",
-      "giphy": [],
+      "giphy": [
+        {
+          "url": "https://media0.giphy.com/media/4U2iWVIAPFYQIPBqhk/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media0.giphy.com/media/4U2iWVIAPFYQIPBqhk/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media4.giphy.com/media/xT3i0T8eMl4826OywE/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media4.giphy.com/media/xT3i0T8eMl4826OywE/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media4.giphy.com/media/u5bHScxI9yw2uWpRW0/100w.gif?cid=c893431atasdnbpqd8gxz2m5ppa7r6pvxyp89yx49rf3o1l9&rid=100w.gif",
+          "image": "https://media4.giphy.com/media/u5bHScxI9yw2uWpRW0/100w_s.gif?cid=c893431atasdnbpqd8gxz2m5ppa7r6pvxyp89yx49rf3o1l9&rid=100w_s.gif"
+        }
+      ],
       "id": 1
     },
     {
@@ -13,8 +26,46 @@
       "username": "a",
       "password": "a",
       "email": "a",
-      "giphy": [],
+      "giphy": [
+        {
+          "url": "https://media3.giphy.com/media/WQYm6kUtnZk8KV91x4/100w.gif?cid=c893431a3c587g39yl14wuae5b6l68ppa4djbhheaoff0sbf&rid=100w.gif",
+          "image": "https://media3.giphy.com/media/WQYm6kUtnZk8KV91x4/100w_s.gif?cid=c893431a3c587g39yl14wuae5b6l68ppa4djbhheaoff0sbf&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media3.giphy.com/media/7KvpshHPnAm3DY9j7L/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media3.giphy.com/media/7KvpshHPnAm3DY9j7L/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media4.giphy.com/media/unD3Qq36syCoQ3e5C5/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media4.giphy.com/media/unD3Qq36syCoQ3e5C5/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        }
+      ],
       "id": 2
+    },
+    {
+      "name": "d",
+      "username": "d",
+      "password": "d",
+      "email": "d@gmail.com",
+      "giphy": [
+        {
+          "url": "https://media2.giphy.com/media/OX4paR8p91JeQ2RoBA/100w.gif?cid=c893431a7wv4frln0gabfqbmoz913hjlbzknuyzcwtwtaen8&rid=100w.gif",
+          "image": "https://media2.giphy.com/media/OX4paR8p91JeQ2RoBA/100w_s.gif?cid=c893431a7wv4frln0gabfqbmoz913hjlbzknuyzcwtwtaen8&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media1.giphy.com/media/hKPdcJkEuHt3CZV7sS/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media1.giphy.com/media/hKPdcJkEuHt3CZV7sS/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media3.giphy.com/media/YT5QCXSOySwRrV3mfg/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media3.giphy.com/media/YT5QCXSOySwRrV3mfg/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        },
+        {
+          "url": "https://media3.giphy.com/media/pNVp8tBOtirZysYMCJ/100w.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w.gif",
+          "image": "https://media3.giphy.com/media/pNVp8tBOtirZysYMCJ/100w_s.gif?cid=c893431aetba13ywhl1ubz9ggv4ctg3jfq8r0wk7uuhnwl7z&rid=100w_s.gif"
+        }
+      ],
+      "id": 3
     }
   ]
 }

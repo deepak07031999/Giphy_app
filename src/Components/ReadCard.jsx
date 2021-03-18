@@ -10,8 +10,7 @@ export default function Card(props) {
   //     });
   const deletebtn = () => {
     const newGiphy={
-      url:props.giphyUrl,
-      id:props.id
+      url:props.giphyUrl
     }
     props.deleteGiphy(newGiphy);
 };

@@ -15,8 +15,8 @@ class App extends React.Component{
     <Router>
     {/* <Header/> */}
     <Switch>
-      <PrivateRoute exact path="/dashboard/:username"   component={Dashboard}/>
-      <PrivateRoute  path="/favourite/:username"  component={ReadNow}/>
+      <Route exact path="/dashboard/:username"   component={Dashboard}/>
+      <Route  path="/favourite/:username"  component={ReadNow}/>
       <Route path="/login" component={Login}></Route>
       <Route path="/register" component={Register}></Route>
     </Switch>

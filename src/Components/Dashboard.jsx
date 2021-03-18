@@ -2,14 +2,16 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import Header from './Header';
+import { useHistory } from "react-router-dom";
 // import Card from './card/Card';
 export default function Dashboard(props) {
 
   const limit = 20;
   const apikey = "idUSQLedlFRlsJ0JEGQwM4vd689Ocyo9";
+  const history = useHistory();
   const [trending, setTrending] = useState([]);
   const [search, setSearch] = useState([]);
-  const [userdata, setUserdata] = useState([]);
+  //const [userdata, setUserdata] = useState([]);
   const [alluser, setAlluser] = useState([]);
   // const Api=b909d678e82f454a84d8487e1da59893;
   useEffect(() => {
@@ -20,32 +22,35 @@ export default function Dashboard(props) {
       })
   }, []);
 
-  const saveGiphy = (newGiphy,username) => {
+  const saveGiphy = (newGiphy, username) => {
 
     axios
       .get('http://localhost:3100/users')
       .then((res) => {
-        setAlluser(res.data);
+        const userdata=(res.data.filter((user) => user.username === username));
+        //console.log(userdata)
+        if(userdata.length==0)
+        {
+          alert("Invalid User login again")
+          //console.log("wrong")
+          history.push("/login")
+        }
+        else{ 
+        userdata[0].giphy.push(newGiphy);
+        axios
+          .put(`http://localhost:3100/users/${userdata[0].id}`, userdata[0], {
+            headers: { 'Content-Type': 'application/json' },
+          })
+          .then(function (response) {
+            if (response.status === 201) {
+            }
+          })
+          .catch(function (error) {
+            //console.log(error);
+          });
+        }                
+        
       })
-      console.log(alluser);
-      setUserdata(alluser.filter((user) => user.username === username));
-      console.log(userdata);
-      var temp= userdata.giphy;
-      console.log("ok");
-      console.log(temp);
-      // temp.push(newGiphy);
-      // userdata.giphy=temp;
-    // axios
-    //   .put(`http://localhost:3100/users/${userdata.id}`, userdata, {
-    //     headers: { 'Content-Type': 'application/json' },
-    //   })
-    //   .then(function (response) {
-    //     if (response.status === 201) {
-    //     }
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
   };
 
 
@@ -56,17 +61,17 @@ export default function Dashboard(props) {
     axios.get(url)
       .then((res) => {
         setTrending(res.data.data);
-        console.log(trending);
+        //console.log(trending);
       })
 
-    console.log(url);
+    //console.log(url);
     setSearch("");
   }
 
   return (
     <div>
       <Header
-      username={props.match.params.username}
+        username={props.match.params.username}
       />
       <div className='container'>
         {/* <h1>{props.match.params.username}</h1> */}

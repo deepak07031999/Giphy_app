@@ -54,6 +54,10 @@
 //     )
 // }
 
+
+
+
+
 import React,{useState} from 'react'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
@@ -69,6 +73,7 @@ export default function Login(){
         get('http://localhost:3100/users')
         .then((response) => {
             // response.data
+            //console.log(response.data);
             let flag=0;
             for(let i=0;i<response.data.length&&!flag;i++)
             {
@@ -80,6 +85,7 @@ export default function Login(){
                         flag=1;
                         history.push(`/dashboard/${response.data[i].username}`)
                     }
+
                     else
                     {
                         alert("Wrong password login again")
