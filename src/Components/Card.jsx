@@ -12,9 +12,9 @@ export default function Card(props) {
   const favorite = () => {
     const newGiphy={
       url:props.giphyUrl,
-      image:props.giphyimage
+      image:props.giphyimage,
     }
-    props.saveGiphy(newGiphy);
+    props.saveGiphy(newGiphy,props.username);
 };
     return (
         <div className="card-inline" style={{width:"17rem" ,border:"1px solid black" ,margin:"5px" }}>

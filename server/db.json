@@ -1,14 +1,20 @@
 {
-  "giphy": [
+  "users": [
     {
-      "url": "https://media3.giphy.com/media/4U2iWVIAPFYQIPBqhk/100w.gif?cid=c893431apjtyubl5q8idyeddlevb0556iuucm8750ix5b5c2&rid=100w.gif",
-      "image": "https://media3.giphy.com/media/4U2iWVIAPFYQIPBqhk/100w_s.gif?cid=c893431apjtyubl5q8idyeddlevb0556iuucm8750ix5b5c2&rid=100w_s.gif",
-      "id": 6
+      "name": "Deepak",
+      "username": "DeepakY",
+      "password": "whatyouwant",
+      "email": "deepak@gmail.com",
+      "giphy": [],
+      "id": 1
     },
     {
-      "url": "https://media2.giphy.com/media/IMJXS0ewbCHptmI0VU/100w.gif?cid=c893431apjtyubl5q8idyeddlevb0556iuucm8750ix5b5c2&rid=100w.gif",
-      "image": "https://media2.giphy.com/media/IMJXS0ewbCHptmI0VU/100w_s.gif?cid=c893431apjtyubl5q8idyeddlevb0556iuucm8750ix5b5c2&rid=100w_s.gif",
-      "id": 8
+      "name": "a",
+      "username": "a",
+      "password": "a",
+      "email": "a",
+      "giphy": [],
+      "id": 2
     }
   ]
 }

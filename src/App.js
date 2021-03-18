@@ -7,22 +7,23 @@ import Dashboard from './Components/Dashboard';
 import ReadNow from './Components/ReadNow';
 import Login from './Components/Login';
 import PrivateRoute from './PrivateRoute';
+import Register from './Components/Register';
 
 class App extends React.Component{
   render(){
     return (
     <Router>
-    <Header/>
+    {/* <Header/> */}
     <Switch>
-      <PrivateRoute exact path="/"  component={Dashboard}/>
-      <PrivateRoute  path="/favourite"  component={ReadNow}/>
+      <PrivateRoute exact path="/dashboard/:username"   component={Dashboard}/>
+      <PrivateRoute  path="/favourite/:username"  component={ReadNow}/>
       <Route path="/login" component={Login}></Route>
+      <Route path="/register" component={Register}></Route>
     </Switch>
     <Footer/>
     </Router>
-   
     )
-   
+
   }
 }
 export default App;
