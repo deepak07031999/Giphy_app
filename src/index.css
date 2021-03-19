@@ -43,19 +43,45 @@ footer{
   display: block;
 }
 .home-main{
-  width: 45rem;
+  width: 50%;
 	height: 35rem;
   position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
+	top:3%;
+	left:5%;  	
 	margin: auto;
+  
 }
 
 .option{
-  margin-top: 5rem;
+  margin-top: 1rem;
+  padding-left: 15px;
+  padding-right: 15px;
   /* margin-left: 5rem; */
+}
+.header-username{
+  color:white;
+}
+.header-image{
+  width: 2rem;
+  height:2rem;
+  border-radius: 50%;
+}
+.login{
+  width:40%
+}
+.home-giphy{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width:45%;
+  height:100%
+}
+#login-gipy{
+  width:50rem;
+  height:100rem;
+}
+.myimg-2{
+  width:99%;
+  height:95.6%;
 }
 

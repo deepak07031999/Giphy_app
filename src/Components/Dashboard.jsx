@@ -11,32 +11,60 @@ export default function Dashboard(props) {
   const history = useHistory();
   const [trending, setTrending] = useState([]);
   const [search, setSearch] = useState([]);
-  //const [userdata, setUserdata] = useState([]);
-  const [alluser, setAlluser] = useState([]);
+  const [currentuser, setCurrentuser] = useState([]);
+  const [image, setImage] = useState([]);
+  const defaultImg="https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg";
+  
   // const Api=b909d678e82f454a84d8487e1da59893;
   useEffect(() => {
     if(localStorage.getItem('isAuthenticated') ==='true');
     else
     {
-          alert("Invalid ")
+          alert("Invalid Username &password");
           //console.log("wrong")
           history.push("/login")
     }
+
     axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apikey}&limit=${limit}&rating=g`)
       .then((res) => {
         setTrending(res.data.data);
         // console.log(trending);
       })
+
+      axios
+      .get('http://localhost:3100/users')
+      .then((res) => {
+        const userdata=(res.data.filter((user) => user.username === localStorage.getItem('username')));
+        //console.log(userdata)
+        if(userdata.length===0)
+        {
+          alert("Invalid User login again")
+          //console.log("wrong")
+          history.push("/login")
+        }
+        else{ 
+          
+        setCurrentuser(userdata[0]);
+        // console.log(currentuser);
+        if(userdata[0].image==="")
+        {
+          setImage(defaultImg);
+        }
+        else setImage(userdata[0].image)
+        // console.log(image);
+        }
+      })
+
   }, []);
 
-  const saveGiphy = (newGiphy, username) => {
 
+  const saveGiphy = (newGiphy, username) => {
     axios
       .get('http://localhost:3100/users')
       .then((res) => {
         const userdata=(res.data.filter((user) => user.username === username));
         //console.log(userdata)
-        if(userdata.length==0)
+        if(userdata.length===0)
         {
           alert("Invalid User login again")
           //console.log("wrong")
@@ -44,6 +72,8 @@ export default function Dashboard(props) {
         }
         else{ 
         userdata[0].giphy.push(newGiphy);
+        setCurrentuser(userdata[0]);
+
         axios
           .put(`http://localhost:3100/users/${userdata[0].id}`, userdata[0], {
             headers: { 'Content-Type': 'application/json' },
@@ -55,22 +85,18 @@ export default function Dashboard(props) {
           .catch(function (error) {
             //console.log(error);
           });
-        }                
-        
+        }                  
       })
   };
-
 
   const searchGiphy = () => {
     // const url=`https://api.giphy.com/v1/gifs/search?api_key=idUSQLedlFRlsJ0JEGQwM4vd689Ocyo9&q=${search}&limit=12&offset=0&rating=g&lang=en`
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${search}&limit=${limit}&offset=0&rating=g&lang=en`
-
     axios.get(url)
       .then((res) => {
         setTrending(res.data.data);
         //console.log(trending);
       })
-
     //console.log(url);
     setSearch("");
   }
@@ -79,6 +105,7 @@ export default function Dashboard(props) {
     <div>
       <Header
         username={localStorage.getItem('username')}
+        image={image}
       />
       <div className='container'>
         {/* <h1>{props.match.params.username}</h1> */}
@@ -100,9 +127,7 @@ export default function Dashboard(props) {
               >
                 <i className="fas fa-search"></i>
               </button>
-
             </div>
-
           </div>
         </div>
 

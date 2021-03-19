@@ -69,8 +69,8 @@ export default function Login(){
 
     const LoginSubmit = () => {
         //const registerData = {username,password,name,cityname,email,image};
-        axios.
-        get('http://localhost:3100/users')
+        axios
+        .get('http://localhost:3100/users')
         .then((response) => {
             // response.data
             //console.log(response.data);
@@ -112,11 +112,11 @@ export default function Login(){
     }
 
     return (
-        <div>
+        <div style={{width:"23rem"}}>
         <div className="container mt-4">
             <h2>Login</h2>
             <div className="row mt-3">
-                <div className="col-md-8">
+                <div className="col-md-12">
                     <div className="form-group">
                         <div className="mb-3">
                             <input type="text" placeholder="Enter your username" className="form-control"
@@ -124,7 +124,7 @@ export default function Login(){
                             />
                         </div>
                         <div className="mb-3">
-                            <input type="text" placeholder="Enter your password" className="form-control"
+                            <input type="password" placeholder="Enter your password" className="form-control"
                             onChange={(e)=>{setPassword(e.target.value)}}
                             />
                         </div>

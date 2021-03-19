@@ -17,7 +17,7 @@ export default function ReadNow(props) {
         axios.get("http://localhost:3100/users")
             .then((res) => {
                 const userdata=(res.data.filter((user) => user.username === localStorage.getItem('username')));
-                if(userdata.length==0)
+                if(userdata.length===0)
                 {
                     alert("Invalid User login again")
                     //console.log("wrong")
@@ -28,10 +28,9 @@ export default function ReadNow(props) {
                 }
                 
             })
-    }, []);
+    });
 
     const deleteGiphy = (newGiphy) => {
-
     axios
       .get('http://localhost:3100/users')
       .then((res) => {

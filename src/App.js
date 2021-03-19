@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.css';
 import Footer from './Components/Footer';
-import Header from './Components/Header';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Dashboard from './Components/Dashboard';
 import ReadNow from './Components/ReadNow';
-import Login from './Components/Login';
 import PrivateRoute from './PrivateRoute';
-import Register from './Components/Register';
 import Home from './Components/Home';
 import Home2 from './Components/Home2';
 
