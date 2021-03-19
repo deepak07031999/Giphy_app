@@ -8,15 +8,10 @@ export default function Register() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const giphy=[];
-    // const [cityname,setCityName] = useState('');
-
-    const [image,setImage] = useState();
-
-
-
+    const giphy = [];
+    const [image, setImage] = useState();
     const RegisterSubmit = () => {
-        const registerData = { name, username, password, email,image, giphy };
+        const registerData = { name, username, password, email, image, giphy };
         axios.post('http://localhost:3100/users', registerData, {
             headers: { 'Content-Type': 'application/json' }
         })
@@ -24,65 +19,44 @@ export default function Register() {
     }
 
     return (
-        <div div style={{width:"23rem"}}>
+        <div div style={{ width: "23rem" }}>
             <div className="container mt-3">
                 <h2>Register</h2>
                 <div className="row mt -3">
                     <div className="col-md-12">
                         <div className="form-group">
-
                             <div className="mb-3">
                                 <input type="text" placeholder="Enter your name" className="form-control"
-                                    onChange={(e) => { setName(e.target.value) }}
-                                />
+                                    onChange={(e) => { setName(e.target.value) }} />
                             </div>
-
                             <div className="mb-3">
                                 <input type="text" placeholder="Enter your username" className="form-control"
-                                    onChange={(e) => { setUserName(e.target.value) }}
-                                />
+                                    onChange={(e) => { setUserName(e.target.value) }} />
                             </div>
-
                             <div className="mb-3">
                                 <input type="password" placeholder="Enter your password" className="form-control"
-                                    onChange={(e) => { setPassword(e.target.value) }}
-                                />
+                                    onChange={(e) => { setPassword(e.target.value) }} />
                             </div>
-
-                            {/* <div className="mb-3">
-                                <input type="text" placeholder="Enter your cityname" className="form-control"
-                                onChange={(e)=>{setCityName(e.target.value)}}
-                                />
-                            </div> */}
-                            
                             <div className="mb-3">
                                 <input type="text" placeholder="Enter your email" className="form-control"
-                                    onChange={(e) => { setEmail(e.target.value) }}
-                                />
+                                    onChange={(e) => { setEmail(e.target.value) }} />
                             </div>
                             <div className="mb-3">
-                                {/* <input type="file" className="form-control"
-                                onChange={(e)=>{setImage(e.target.value)}}
-                                /> */}
-                                 <input type="text" className="form-control"
-                                 placeholder="Enter Image Url"
-                                onChange={(e)=>{setImage(e.target.value)}}
+                                <input type="text" className="form-control"
+                                    placeholder="Enter Image Url"
+                                    onChange={(e) => { setImage(e.target.value) }}
                                 />
                             </div>
                         </div>
-                        {/* <p>Not a User ? Then enter username and password above and click on Register first</p> */}
                         <div>
                             <button type="submit" className="btn btn-primary"
-                                onClick={RegisterSubmit}
-                            >Register</button>
+                                onClick={RegisterSubmit}>
+                                Register
+                            </button>
                         </div>
                     </div>
                 </div>
-                {/* <div className="col-md-6 mt-4">
-                        <AddContact addContact={saveContact}/>
-                </div> */}
             </div>
-
         </div>
     )
 }
