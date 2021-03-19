@@ -7,28 +7,45 @@ import { useHistory } from "react-router-dom";
 export default function ReadNow(props) {
     const history = useHistory();
     const [favoriteGiphyList, setFavoriteGiphyList] = useState([]);
-    useEffect(() => {
-        if(localStorage.getItem('isAuthenticated') !=='true')
-        {
-          alert("Invalid User login again")
+    const [image, setImage] = useState([]);
+    const defaultImg = "https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg";
+
+    const checkuser=()=>{
+        if (localStorage.getItem('isAuthenticated') === 'true');
+        else {
+          alert("Invalid Username &password");
           //console.log("wrong")
           history.push("/login")
         }
+      }
+    const start=()=>{
         axios.get("http://localhost:3100/users")
-            .then((res) => {
-                const userdata=(res.data.filter((user) => user.username === localStorage.getItem('username')));
-                if(userdata.length===0)
-                {
-                    alert("Invalid User login again")
-                    //console.log("wrong")
-                    history.push("/login")
-                }
-                else{
-                    setFavoriteGiphyList(userdata[0].giphy);
-                }
+        .then((res) => {
+            const userdata=(res.data.filter((user) => user.username === localStorage.getItem('username')));
+            if(userdata.length===0)
+            {
+                alert("Invalid User login again")
+                //console.log("wrong")
+                history.push("/login")
+            }
+            else{
                 
-            })
-    });
+                setFavoriteGiphyList(userdata[0].giphy);
+                if (userdata[0].image === "") {
+                    setImage(defaultImg);
+                  }
+                  else setImage(userdata[0].image)
+            }
+            
+        })
+
+      }
+
+    useEffect(() => {
+       checkuser();
+       start();
+        
+    },[]);
 
     const deleteGiphy = (newGiphy) => {
     axios
@@ -70,22 +87,14 @@ export default function ReadNow(props) {
           });               
         
       })
-
-        // axios
-            // .delete(`http://localhost:3100/giphy/${newGiphy.id}`, {
-            //     headers: { 'Content-Type': 'application/json' },
-            // })
-        //     .then((response) => {
-        //         if (response.status === 200) {
-        //             setFavoriteGiphyList(favoriteGiphyList.filter((favoriteGiphy) => favoriteGiphy.id !== newGiphy.id));
-        //         }
-        //     });
     };
     
     return (
         <div>
             <Header 
-            username={localStorage.getItem('username')}/>
+            username={localStorage.getItem('username')}
+            image={image}
+            />
             <div className='container' >
                 <div className='row' style={{ width: "max" }}>
                     {favoriteGiphyList.map((giphy) => (
@@ -96,10 +105,6 @@ export default function ReadNow(props) {
                         />
                     ))
                     }
-                    {/* <div className="col-md-6 mt-4">
-                        <AddContact addContact={saveContact}/>
-                </div> */}
-
                 </div>
             </div>
         </div>
