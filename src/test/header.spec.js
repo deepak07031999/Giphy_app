@@ -1,8 +1,15 @@
-import Header from '../Components/header/Header';
-// please add your test cases here
-describe('Testing sum', () => {
-    it('should equal 4',()=>{
-       expect(2+2).toBe(4);
-      })
+import Header from '../Components/Header';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect'
+import {render} from  '@testing-library/react';
+
+describe('Card test cases',() => {
+    test('should have header component',() => {
+        render(
+            <Router>
+                <Header/>
+            </Router>
+        )
+    });
 });
-export default Header;

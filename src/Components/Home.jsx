@@ -3,7 +3,6 @@ import Login from './Login'
 import { useHistory } from "react-router-dom";
 import GuestHeader from './GuestHeader';
 export default function Home() {
-    const image="https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg";
     const history = useHistory();
     if (localStorage.getItem('isAuthenticated') === 'true') {
         history.push('/');
@@ -13,12 +12,12 @@ export default function Home() {
         <div>
             <GuestHeader/>
             <div>
-                <div class="home-main">
-                    <div class="option">
-                        <a href="/login" class="btn btn-primary" style={{ width: "10rem" }}>Login</a>
-                        <a href="/register" class="btn btn-secondary" style={{ width: "10rem", margin: "20px" }}>Register</a>
+                <div className="home-main">
+                    <div className="option">
+                        <a href="/login" className="btn btn-primary" style={{ width: "10rem" }}>Login</a>
+                        <a href="/register" className="btn btn-secondary" style={{ width: "10rem", margin: "20px" }}>Register</a>
                     </div>
-                    <div class="login">
+                    <div className="login">
                         <Login/>
                     </div>
                 </div>
@@ -29,3 +28,4 @@ export default function Home() {
         </div>
     )
 }
+

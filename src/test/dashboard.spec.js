@@ -1,9 +1,15 @@
-import Dashboard from '../Components/dashboard/Dashboard';
-// please add your test cases here
-describe('Testing sum', () => {
-    it('should equal 4',()=>{
-       expect(2+2).toBe(4);
-      })
+import Dashboard from '../Components/Dashboard';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect'
+import {render} from  '@testing-library/react';
 
+describe('Card test cases',() => {
+    test('should have Dashboard component',() => {
+        render(
+            <Router>
+                <Dashboard/>
+            </Router>
+        )
+    });
 });
-export default Dashboard;

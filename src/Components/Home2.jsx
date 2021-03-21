@@ -12,12 +12,12 @@ export default function Home2() {
         <div>
             <GuestHeader/>
             <div>
-                <div class="home-main">
-                    <div class="option">
-                        <a href="/login" class="btn btn-secondary" style={{ width: "10rem" }}>Login</a>
-                        <a href="/register" class="btn btn-primary" style={{ width: "10rem", margin: "20px" }}>Register</a>
+                <div className="home-main">
+                    <div className="option">
+                        <a href="/login" className="btn btn-secondary" style={{ width: "10rem" }}>Login</a>
+                        <a href="/register" className="btn btn-primary" style={{ width: "10rem", margin: "20px" }}>Register</a>
                     </div>
-                    <div class="register">
+                    <div className="register">
                         <Register />
                     </div>
                     <div className="home-giphy">

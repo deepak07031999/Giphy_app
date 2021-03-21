@@ -1,8 +1,15 @@
-import Footer from '../Components/footer/Footer';
-// please add your test cases here
-describe('Testing sum', () => {
-    it('should equal 4',()=>{
-       expect(2+2).toBe(4);
-      })
+import Footer from '../Components/Footer';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect'
+import {render} from  '@testing-library/react';
+
+describe('Card test cases',() => {
+    test('should have footer component',() => {
+        render(
+            <Router>
+                <Footer/>
+            </Router>
+        )
+    });
 });
-export default Footer;

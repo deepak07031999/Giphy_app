@@ -19,7 +19,7 @@ export default function Register() {
     }
 
     return (
-        <div div style={{ width: "23rem" }}>
+        <div style={{ width: "23rem" }}>
             <div className="container mt-3">
                 <h2>Register</h2>
                 <div className="row mt -3">
