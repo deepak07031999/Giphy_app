@@ -12,8 +12,6 @@ export default function Dashboard(props) {
   const [image, setImage] = useState([]);
   const [limit, setLimit] = useState(20);
   const defaultImg = "https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg";
-
-  // const Api=b909d678e82f454a84d8487e1da59893;
   const checkuser = () => {
     if (localStorage.getItem('isAuthenticated') === 'true');
     else {
