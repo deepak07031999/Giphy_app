@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer>
             CopyRight &copy;
-            SauDeep
+            Team 4 
         </footer>
     )
 

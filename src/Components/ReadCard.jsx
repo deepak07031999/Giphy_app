@@ -3,10 +3,10 @@ import React from 'react'
 export default function Card(props) {
 
   const deletebtn = () => {
-    const newGiphy = {
-      url: props.giphyUrl
-    }
-    props.deleteGiphy(newGiphy);
+    // const newGiphy = {
+    //   url: props.giphyUrl
+    // }
+    props.deleteGiphy(props.id);
   };
 
   return (

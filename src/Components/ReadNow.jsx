@@ -18,15 +18,24 @@ export default function ReadNow(props) {
     }
   }
   const start = () => {
-    axios.get("http://localhost:3100/users")
-      .then((res) => {
-        const userdata = (res.data.filter((user) => user.username === localStorage.getItem('username')));
-        setFavoriteGiphyList(userdata[0].giphy);
-        if (userdata[0].image === "") {
-          setImage(defaultImg);
-        }
-        else setImage(userdata[0].image)
-      })
+
+    const data = {
+      username: localStorage.getItem('username'),
+  }
+    axios.post('http://localhost:5000/favourite/', data)
+    .then((res) => {
+      setFavoriteGiphyList(res.data);
+    })
+
+    // axios.get("http://localhost:3100/favourite")
+    //   .then((res) => {
+    //     const userdata = (res.data.filter((user) => user.username === localStorage.getItem('username')));
+    //     setFavoriteGiphyList(userdata[0].giphy);
+    //     if (userdata[0].image === "") {
+    //       setImage(defaultImg);
+    //     }
+    //     else setImage(userdata[0].image)
+    //   })
   }
 
   useEffect(() => {
@@ -35,28 +44,39 @@ export default function ReadNow(props) {
 
   }, []);
 
-  const deleteGiphy = (newGiphy) => {
-    axios
-      .get('http://localhost:3100/users')
-      .then((res) => {
-        const userdata = (res.data.filter((user) => user.username === localStorage.getItem('username')));
-        const temp = [];
-        for (let i = 0; i < userdata[0].giphy.length; i++) {
-          if (userdata[0].giphy[i].url === newGiphy.url) continue;
-          temp.push(userdata[0].giphy[i]);
-        }
-        userdata[0].giphy = temp;
-        axios.put(`http://localhost:3100/users/${userdata[0].id}`, userdata[0], {
-            headers: { 'Content-Type': 'application/json' },
-          })
-          .then(function (response) {
-            if (response.status === 200) {
-              setFavoriteGiphyList(userdata[0].giphy);
-            }
-          })
-          .catch(function (error) {
-          });
-      })
+  const deleteGiphy = (id) => {
+
+    const data = {
+      username: localStorage.getItem('username'),
+      id: id
+  }
+  axios.post('http://localhost:5000/favourite/delete', data)
+  .then((res) => {
+    setFavoriteGiphyList(res.data);
+  })
+
+
+    // axios
+    //   .get('http://localhost:3100/users')
+    //   .then((res) => {
+    //     const userdata = (res.data.filter((user) => user.username === localStorage.getItem('username')));
+    //     const temp = [];
+    //     for (let i = 0; i < userdata[0].giphy.length; i++) {
+    //       if (userdata[0].giphy[i].url === newGiphy.url) continue;
+    //       temp.push(userdata[0].giphy[i]);
+    //     }
+    //     userdata[0].giphy = temp;
+    //     axios.put(`http://localhost:3100/users/${userdata[0].id}`, userdata[0], {
+    //         headers: { 'Content-Type': 'application/json' },
+    //       })
+    //       .then(function (response) {
+    //         if (response.status === 200) {
+    //           setFavoriteGiphyList(userdata[0].giphy);
+    //         }
+    //       })
+    //       .catch(function (error) {
+    //       });
+    //   })
   };
 
   return (
@@ -68,6 +88,7 @@ export default function ReadNow(props) {
         <div className='row' style={{ width: "max" }}>
           {favoriteGiphyList.map((giphy) => (
             <ReadCard
+              id={giphy.id}
               giphyUrl={giphy.url}
               giphyimage={giphy.image}
               deleteGiphy={deleteGiphy}

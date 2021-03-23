@@ -1,6 +1,28 @@
-import React from 'react'
+import axios from 'axios';
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 export default function Header(props) {
+const [image, setImage] = useState([]);
+const defaultImg = "https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg";
+  const getImage = () => {
+    const data = {
+      username: localStorage.getItem('username'),
+    }
+    axios.post('http://localhost:5000/users/image', data)
+      .then((res) => {
+        if(res.data!=="")setImage(res.data);
+        else{
+          setImage(defaultImg)
+        }
+
+      })
+  }
+  useEffect(() => {
+    getImage()
+  })
+
+
+
   const logout = () => {
     localStorage.setItem('token', null);
     localStorage.setItem('isAuthenticated', false);
@@ -30,7 +52,7 @@ export default function Header(props) {
         </ul>
         <ul className="navbar-nav" style={{ position: 'absolute', right: "9rem" }}>
           <li className="nav-item active">
-            <img className="header-image" src={props.image} alt="" />
+            <img className="header-image" src={image} alt="" />
           </li>
         </ul>
         <ul className="navbar-nav" style={{ position: 'absolute', right: "1rem" }}>

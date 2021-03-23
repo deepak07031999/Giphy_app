@@ -8,36 +8,22 @@ export default function Login() {
     const [password, setPassword] = useState('');
 
     const LoginSubmit = () => {
-        axios
-            .get('http://localhost:3100/users')
-            .then((response) => {
-                let flag = 0;
-                for (let i = 0; i < response.data.length && !flag; i++) {
-                    if (response.data[i].username === username) {
-                        if (response.data[i].password === password) {
-                            flag = 1;
-                            localStorage.setItem('token', "token");
-                            localStorage.setItem('username', username);
-                            localStorage.setItem('isAuthenticated', true);
-                            history.push(`/dashboard`)
-                        }
+        const userData = { username, password };
+        //console.log(password);
+        axios.post('http://localhost:5000/users/login', userData)
+      .then((res) => {
+        //console.log(password);
+        localStorage.setItem('username', username);
+        localStorage.setItem('isAuthenticated', true);
+        history.push("/dashboard");
+      })
+      .catch(err => {
+        //console.log(password+"hello");
+        alert('Not a valid user');
+        //console.log(err)
+      })
 
-                        else {
-                            alert("Wrong password login again")
-                            console.log("wrong")
-                            history.push("/login")
-                        }
-                    }
-                }
-                if (flag === 0) {
-                    alert("Wrong user login again")
-                    console.log("wrong")
-                    history.push("/login")
-                }
-            })
-            .catch((error) => {
-                console.log("error searching data base for users")
-            })
+        
     }
     return (
         <div style={{ width: "23rem" }}>

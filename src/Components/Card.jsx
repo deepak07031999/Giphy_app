@@ -1,12 +1,19 @@
 import React from 'react'
+import axios from 'axios';
 export default function Card(props) {
 
   const favorite = () => {
-    const newGiphy = {
-      url: props.giphyUrl,
-      image: props.giphyimage
+    const data = {
+      username: localStorage.getItem('username'),
+      giphy: { id: props.id,  url: props.giphyUrl,image: props.giphyimage }
     }
-    props.saveGiphy(newGiphy, props.username);
+    axios.post('http://localhost:5000/favourite/add', data)
+      .then((res) => {
+        //console.log(res)
+      })
+      .catch(err => {
+        //console.log(err)
+      })
   };
   return (
     <div className="card-inline" style={{ width: "17rem", border: "1px solid black", margin: "5px" }}>

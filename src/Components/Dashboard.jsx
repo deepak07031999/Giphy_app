@@ -9,9 +9,9 @@ export default function Dashboard(props) {
   const history = useHistory();
   const [trending, setTrending] = useState([]);
   const [search, setSearch] = useState([]);
-  const [image, setImage] = useState([]);
+  // const [image, setImage] = useState([]);
   const [limit, setLimit] = useState(20);
-  const defaultImg = "https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg";
+  
   const checkuser = () => {
     if (localStorage.getItem('isAuthenticated') === 'true');
     else {
@@ -26,40 +26,22 @@ export default function Dashboard(props) {
       })
   }
 
-  const start = () => {
-    axios
-      .get('http://localhost:3100/users')
-      .then((res) => {
-        const userdata = (res.data.filter((user) => user.username === localStorage.getItem('username')));
-        if (userdata[0].image === "") setImage(defaultImg);
-        else setImage(userdata[0].image)
+  // const start = () => {
+  //   axios
+  //     .get('http://localhost:3100/users')
+  //     .then((res) => {
+  //       const userdata = (res.data.filter((user) => user.username === localStorage.getItem('username')));
+  //       if (userdata[0].image === "") setImage(defaultImg);
+  //       else setImage(userdata[0].image)
 
-      })
-  }
+  //     })
+  // }
 
   useEffect(() => {
     checkuser();
-    start();
+    // start();
     fetchGiphy();
   }, [limit]);
-
-  const saveGiphy = (newGiphy, username) => {
-    axios.get('http://localhost:3100/users')
-      .then((res) => {
-        const userdata = (res.data.filter((user) => user.username === username));
-        userdata[0].giphy.push(newGiphy);
-
-        axios.put(`http://localhost:3100/users/${userdata[0].id}`, userdata[0], {
-          headers: { 'Content-Type': 'application/json' },
-        })
-          .then(function (response) {
-            if (response.status === 201) {
-            }
-          })
-          .catch(function (error) {
-          });
-      })
-  };
 
   const searchGiphy = () => {
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${search}&limit=${limit}&offset=0&rating=g&lang=en`
@@ -72,10 +54,7 @@ export default function Dashboard(props) {
 
   return (
     <div>
-      <Header
-        username={localStorage.getItem('username')}
-        image={image}
-      />
+      <Header/>
       <div className='container'>
         <div className="search-bar">
           <div className="input-group">
@@ -107,7 +86,6 @@ export default function Dashboard(props) {
               username={localStorage.getItem('username')}
               giphyimage={giphy.images.fixed_width_small_still.url}
               giphyUrl={giphy.images.fixed_width_small.url}
-              saveGiphy={saveGiphy}
             />
           ))
           }

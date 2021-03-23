@@ -8,16 +8,14 @@ export default function Register() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const giphy = [];
-    const [image, setImage] = useState();
+    const [imageUrl, setImageUrl] = useState('');
     const RegisterSubmit = () => {
-        const registerData = { name, username, password, email, image, giphy };
-        axios.post('http://localhost:3100/users', registerData, {
-            headers: { 'Content-Type': 'application/json' }
+        const registerData = { name, username, password, email, imageUrl };
+        axios.post('http://localhost:5000/users/add', registerData)
+        .then((res)=>{
+            history.push('/login')
         })
-        history.push('/login')
     }
-
     return (
         <div style={{ width: "23rem" }}>
             <div className="container mt-3">
@@ -44,7 +42,7 @@ export default function Register() {
                             <div className="mb-3">
                                 <input type="text" className="form-control"
                                     placeholder="Enter Image Url"
-                                    onChange={(e) => { setImage(e.target.value) }}
+                                    onChange={(e) => { setImageUrl(e.target.value) }}
                                 />
                             </div>
                         </div>
