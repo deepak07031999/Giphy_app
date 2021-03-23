@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "node server/bin/www",
-    "server": "json-server --watch server/db.json --port 3100"
+    "server": "nodemon server/app.js"
   },
   "eslintConfig": {
     "extends": "react-app"

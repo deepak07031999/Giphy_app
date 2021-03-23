@@ -7,10 +7,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-  server:
-    stdin_open: true
-    image: clue/json-server
-    ports:
-      - '3100:80'
-    volumes:
-      - './server/db.json:/data/db.json'
+  # server:
+  #   stdin_open: true
+  #   image: clue/json-server
+  #   ports:
+  #     - '3100:80'
+  #   volumes:
+  #     - './server/db.json:/data/db.json'
